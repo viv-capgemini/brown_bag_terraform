@@ -17,3 +17,6 @@ data "aws_availability_zones" "available" {}
 locals {
   cluster_name = "brown_bag-eks-cluster"
 }
+data "terraform_remote_state" "network" {
+  backend = "remote"
+}
