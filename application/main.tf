@@ -30,6 +30,5 @@ data "terraform_remote_state" "network" {
 
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
-  version = "18.26.6"
-  cloudwatch_log_group_name = "brown_bag_logs"
+  version = "18.26.0"
 }
