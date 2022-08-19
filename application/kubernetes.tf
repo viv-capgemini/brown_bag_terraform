@@ -3,11 +3,11 @@ data "aws_eks_cluster_auth" "cluster" {
 }
 
 provider "kubernetes" {
-  host                   = data.terraform_remote_state.cluster.outputs.endpoint
-  cluster_ca_certificate = base64decode(data.terraform_remote_state.cluster.outputs.certificate_authority.0.data)
+  host                   = data.terraform_remote_state.network.outputs.cluster_endpoint
+  cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster.certificate_authority.0.data)
   exec {
     api_version = "client.authentication.k8s.io/v1alpha1"
-    args        = ["eks", "get-token", "--cluster-name", data.terraform_remote_state.cluster.outputs.cluster.name]
+    args        = ["eks", "get-token", "--cluster-name", data.terraform_remote_state.network.outputs.cluster_name]
     command     = "aws"
   }
 }
