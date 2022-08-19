@@ -30,5 +30,5 @@ data "terraform_remote_state" "network" {
 
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
-  version = "18.26.0"
+  version = "18.26.6"
 }
