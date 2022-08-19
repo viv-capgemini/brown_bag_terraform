@@ -1,6 +1,6 @@
 resource "aws_security_group" "node_group_one" {
   name_prefix = "node_group_one"
-  vpc_id      = "vpc-0949fe51a94086d33"
+  vpc_id      = module.vpc.vpc_id
 
   ingress {
     from_port = 22
@@ -15,7 +15,7 @@ resource "aws_security_group" "node_group_one" {
 
 resource "aws_security_group" "node_group_two" {
   name_prefix = "node_group_two"
-  vpc_id      = "vpc-0949fe51a94086d33"
+  vpc_id      = module.vpc.vpc_id
 
   ingress {
     from_port = 22

@@ -5,11 +5,8 @@ module "eks" {
   cluster_name    = local.cluster_name
   cluster_version = var.cluster_version
 
-  vpc_id     = "vpc-0949fe51a94086d33"
-  subnet_ids = [
-  "subnet-071cde5e69312d40c",
-  "subnet-0786c3602f30f4bd0",
-]
+  vpc_id     = module.vpc.vpc_id
+  subnet_ids = module.vpc.private_subnets
 
   eks_managed_node_group_defaults = {
     ami_type = "AL2_x86_64"
