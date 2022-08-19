@@ -5,7 +5,7 @@ module "eks" {
   cluster_name    = local.cluster_name
   cluster_version = var.cluster_version
 
-  vpc_id     = module.vpc.vpc_id
+  vpc_id     = data.terraform_remote_state.network.outputs.vpc_id
   subnet_ids = data.terraform_remote_state.network.outputs.private_subnets
 
   eks_managed_node_group_defaults = {
