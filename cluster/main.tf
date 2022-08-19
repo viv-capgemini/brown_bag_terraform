@@ -19,4 +19,12 @@ locals {
 }
 data "terraform_remote_state" "network" {
   backend = "remote"
+
+  config = {
+
+    organization = "brown_bag_demo"
+    workspaces = {
+          name = "network"
+    }
+  }
 }
